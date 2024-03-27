@@ -1,7 +1,7 @@
 package at.codersbay.courseapp.data;
 
-import at.codersbay.courseapp.api.Participants.Participants;
-import at.codersbay.courseapp.api.Participants.ParticipantsRepository;
+import at.codersbay.courseapp.api.Student.Student;
+import at.codersbay.courseapp.api.Student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class DataInitializer {
     @Autowired
-    private ParticipantsRepository participantsRepository;
+    private StudentRepository studentRepository;
 
     //BookingRepository
 
@@ -22,12 +22,12 @@ public class DataInitializer {
 
     public void createInitialData(){
 
-        Participants max = new Participants();
+        Student max = new Student();
         max.setUserName("MaxFirstUser");
         max.setFirstName("Max");
         max.setLastName("Musterman");
         max.seteMail("Max@mustermann.at");
-        participantsRepository.save(max);
+        studentRepository.save(max);
 
     }
 }
