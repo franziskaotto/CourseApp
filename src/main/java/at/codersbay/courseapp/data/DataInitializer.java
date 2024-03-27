@@ -24,6 +24,8 @@ public class DataInitializer {
 
         Participants max = new Participants();
         max.setUserName("MaxFirstUser");
+        max.setFirstName("Max");
+        max.setLastName("Musterman");
         max.seteMail("Max@mustermann.at");
         participantsRepository.save(max);
 

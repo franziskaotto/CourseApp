@@ -28,13 +28,25 @@ public class Participants {
 
     @Column
     private String firstName;
+
+    @Column
+    private String lastName;
+
+
+
     @Column
     private String eMail;
 
     //beziehungen hier (many to many)
 
     //Getters and setters
+    public String getLastName() {
+        return lastName;
+    }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
     public long getId() {
         return id;
     }
