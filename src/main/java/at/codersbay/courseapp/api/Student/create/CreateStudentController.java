@@ -14,7 +14,7 @@ public class CreateStudentController {
 @Autowired
 private CreateStudentService createStudentService;
 
-
+//irgendwo hier noch abfragen, ob es den Student schon gibt => weil die eine Coloumn auf Unique ist
     @PostMapping
     public ResponseEntity<StudentResponseBody> createNewStudent(@RequestBody CreateStudentDTO createStudentDTO) {
 

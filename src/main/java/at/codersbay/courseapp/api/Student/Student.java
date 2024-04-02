@@ -23,7 +23,7 @@ public class Student {
 
     private long id;
 
-    @Column
+    @Column (unique = true, nullable = false)
     private String userName;
 
     @Column
@@ -34,6 +34,8 @@ public class Student {
 
     @Column
     private String eMail;
+
+    //passwort nicht
 
     //beziehungen hier (many to many)
 
