@@ -1,4 +1,4 @@
-package at.codersbay.courseapp.api.Student;
+package at.codersbay.courseapp.api.student;
 
 
 import org.hibernate.annotations.GenericGenerator;
@@ -38,6 +38,12 @@ public class Student {
     //passwort nicht
 
     //beziehungen hier (many to many)
+    //brauche noch eine Liste mit Courses!
+
+    @ManyToMany
+    @JoinTable(
+            name = "TB_"
+    )
 
     //Getters and setters
     public String getLastName() {

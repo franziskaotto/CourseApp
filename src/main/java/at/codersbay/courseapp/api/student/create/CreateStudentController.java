@@ -1,8 +1,9 @@
-package at.codersbay.courseapp.api.Student.create;
+package at.codersbay.courseapp.api.student.create;
 
+//info: alles was DTO überprüfung ist, passiert im controller, alle anderen in der service class
 
-import at.codersbay.courseapp.api.Student.Student;
-import at.codersbay.courseapp.api.Student.StudentResponseBody;
+import at.codersbay.courseapp.api.student.Student;
+import at.codersbay.courseapp.api.student.StudentResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

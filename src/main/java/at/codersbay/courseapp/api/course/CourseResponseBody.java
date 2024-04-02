@@ -1,4 +1,4 @@
-package at.codersbay.courseapp.api.Course;
+package at.codersbay.courseapp.api.course;
 
 import org.apache.catalina.connector.Response;
 

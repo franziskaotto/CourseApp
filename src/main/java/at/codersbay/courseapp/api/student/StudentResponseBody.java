@@ -1,4 +1,4 @@
-package at.codersbay.courseapp.api.Student;
+package at.codersbay.courseapp.api.student;
 
 import at.codersbay.courseapp.api.ResponseBody;
 

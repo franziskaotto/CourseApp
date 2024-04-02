@@ -1,9 +1,9 @@
-package at.codersbay.courseapp.api.Student.delete;
+package at.codersbay.courseapp.api.student.delete;
 
 import at.codersbay.courseapp.api.ResponseBody;
 
-import at.codersbay.courseapp.api.Student.Student;
-import at.codersbay.courseapp.api.Student.StudentRepository;
+import at.codersbay.courseapp.api.student.Student;
+import at.codersbay.courseapp.api.student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

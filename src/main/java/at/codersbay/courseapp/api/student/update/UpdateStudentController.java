@@ -1,9 +1,9 @@
-package at.codersbay.courseapp.api.Student.update;
+package at.codersbay.courseapp.api.student.update;
 
 
-import at.codersbay.courseapp.api.Student.Student;
-import at.codersbay.courseapp.api.Student.StudentRepository;
-import at.codersbay.courseapp.api.Student.StudentResponseBody;
+import at.codersbay.courseapp.api.student.Student;
+import at.codersbay.courseapp.api.student.StudentRepository;
+import at.codersbay.courseapp.api.student.StudentResponseBody;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

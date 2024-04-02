@@ -1,10 +1,6 @@
-package at.codersbay.courseapp.api.Student.update;
+package at.codersbay.courseapp.api.student.create;
 
-import javax.persistence.Column;
-
-public class UpdateStudentDTO {
-
-
+public class CreateStudentDTO {
     private long id;
 
     private String userName;
@@ -12,11 +8,10 @@ public class UpdateStudentDTO {
     private String firstName;
 
     private String lastName;
-
     private String eMail;
 
 
-    //getter and setter
+//getter and setter
 
 
     public long getId() {

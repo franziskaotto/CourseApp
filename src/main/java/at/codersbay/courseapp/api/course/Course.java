@@ -1,4 +1,4 @@
-package at.codersbay.courseapp.api.Course;
+package at.codersbay.courseapp.api.course;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -32,19 +32,42 @@ public class Course {
         @Column()
         private int maxParticipants;
 
-        //@ManyToMany()
-//        @JoinTable(
-//                name="TB_COURSES_USERS"
-//        )
-//
+
+//booking wird das selbe wie er gemacht hat in Borrow on Book in seiner Libraryapp
 
 
+//getter and setter
 
 
+        public long getId() {
+                return id;
+        }
 
+        public void setId(long id) {
+                this.id = id;
+        }
 
+        public String getTitle() {
+                return title;
+        }
 
+        public void setTitle(String title) {
+                this.title = title;
+        }
 
+        public String getDescription() {
+                return description;
+        }
 
+        public void setDescription(String description) {
+                this.description = description;
+        }
 
+        public int getMaxParticipants() {
+                return maxParticipants;
+        }
+
+        public void setMaxParticipants(int maxParticipants) {
+                this.maxParticipants = maxParticipants;
+        }
 }

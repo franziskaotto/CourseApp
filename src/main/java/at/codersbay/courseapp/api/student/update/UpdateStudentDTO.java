@@ -1,6 +1,8 @@
-package at.codersbay.courseapp.api.Student.create;
+package at.codersbay.courseapp.api.student.update;
 
-public class CreateStudentDTO {
+public class UpdateStudentDTO {
+
+
     private long id;
 
     private String userName;
@@ -8,10 +10,11 @@ public class CreateStudentDTO {
     private String firstName;
 
     private String lastName;
+
     private String eMail;
 
 
-//getter and setter
+    //getter and setter
 
 
     public long getId() {
