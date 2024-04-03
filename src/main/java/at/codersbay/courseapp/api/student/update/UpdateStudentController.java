@@ -27,8 +27,9 @@ public class UpdateStudentController {
     public ResponseEntity<StudentResponseBody> updateStudent(@RequestBody UpdateStudentDTO updateStudentDTO) {
         if(updateStudentDTO == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
         }
+
+
         Optional<Student> optionalStudent = this.studentRepository.findById(updateStudentDTO.getId());
 
         if(optionalStudent.isEmpty()) {
