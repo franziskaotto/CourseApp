@@ -15,7 +15,7 @@ public class Course {
                 name="course-sequence-generator",
                 strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
                 parameters = {
-                        @org.hibernate.annotations.Parameter(name = "sequence_name", value = "user_sequence"),
+                        @org.hibernate.annotations.Parameter(name = "sequence_name", value = "course_sequence"),
                         @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
                         @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
                 }
@@ -23,13 +23,13 @@ public class Course {
 
         private long id;
 
-        @Column()
+        @Column(unique = true, nullable = false)
         private String title;
 
-        @Column()
+        @Column
         private String description;
 
-        @Column()
+        @Column
         private int maxParticipants;
 
 

@@ -24,6 +24,10 @@ public class GetStudentsController {
     @GetMapping("/")
     public ResponseEntity<List<Student>> getAll() {
         List<Student>  students = studentRepository.findAll();
+
+//        if(students.size() == 0) {
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
         return ResponseEntity.ok(students);
     }
 

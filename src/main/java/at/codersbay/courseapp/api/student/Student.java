@@ -6,7 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name="STUDENTS")
+@Table(name="Table_STUDENTS")
 public class Student {
 
     @Id
@@ -40,10 +40,7 @@ public class Student {
     //beziehungen hier (many to many)
     //brauche noch eine Liste mit Courses!
 
-    @ManyToMany
-    @JoinTable(
-            name = "TB_"
-    )
+
 
     //Getters and setters
     public String getLastName() {

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Service
 public class DataInitializer {
@@ -25,6 +26,11 @@ public class DataInitializer {
 
 
     public void createInitialData(){
+        List<Course> courses = this.courseRepository.findAll();
+
+        if(courses.size() > 0) {
+            return;
+        }
 
         Student max = new Student();
         max.setUserName("MaxFirstUser");
