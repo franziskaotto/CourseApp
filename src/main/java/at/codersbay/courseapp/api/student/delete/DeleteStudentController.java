@@ -37,6 +37,32 @@ public class DeleteStudentController {
         } else {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @DeleteMapping("/userName/{userName}")
+    public ResponseEntity<ResponseBody> deleteStudentByUserName(@PathVariable String userName) {
+        Optional<Student> optionalStudent = this.studentRepository.findStudentByUserName(userName);
+
+        ResponseBody responseBody = new ResponseBody();
+
+        if(optionalStudent.isEmpty()) {
+            responseBody.addErrorMessage("Could not find username : " + userName);
+            return new ResponseEntity<>(responseBody, HttpStatus.NO_CONTENT);
+        }
+
+        Student student = optionalStudent.get();
+        this.studentRepository.deleteById(student.getId());
+        optionalStudent = studentRepository.findStudentByUserName(userName);
+
+        if(optionalStudent.isPresent()){
+            responseBody.addErrorMessage("Could not delete Student with userName: " + userName);
+            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
+        } else {
+            responseBody.addMessage("Delete successfull, " + userName + " has been deleted.");
+            return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
+        }
 
     }
+
+
 }
