@@ -15,6 +15,7 @@ public class StudentResponseBody extends ResponseBody {
         this.student = student;
     }
 
+    //getter and setter
     public Student getStudent() {
         return student;
     }

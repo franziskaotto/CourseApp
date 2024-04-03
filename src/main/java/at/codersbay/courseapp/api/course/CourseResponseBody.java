@@ -1,14 +1,17 @@
 package at.codersbay.courseapp.api.course;
 
-import org.apache.catalina.connector.Response;
+import at.codersbay.courseapp.api.ResponseBody;
 
-public class CourseResponseBody extends Response {
+public class CourseResponseBody extends ResponseBody {
     private Course course;
 
     public CourseResponseBody() {
 
     }
-    private CourseResponseBody(Course course) {this.course = course;}
+
+
+    //creating 2. constructor with passing value
+    public CourseResponseBody(Course course) {this.course = course;}
 
 
     //getter and setter

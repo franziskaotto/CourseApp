@@ -26,11 +26,19 @@ public class DataInitializer {
 
 
     public void createInitialData(){
+
+        List<Student> students = this.studentRepository.findAll();
+
+        if(students.size() > 0) {
+            return;
+        }
+
         List<Course> courses = this.courseRepository.findAll();
 
         if(courses.size() > 0) {
             return;
         }
+
 
         Student max = new Student();
         max.setUserName("MaxFirstUser");
