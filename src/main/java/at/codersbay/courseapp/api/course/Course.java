@@ -1,8 +1,10 @@
 package at.codersbay.courseapp.api.course;
 
+import at.codersbay.courseapp.api.booking.Booking;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -31,6 +33,9 @@ public class Course {
 
         @Column
         private int maxParticipants;
+
+        @OneToMany(mappedBy="course") //ist im booking ein feld
+        Set<Booking> courseBookings;
 
 
 //booking wird das selbe wie er gemacht hat in Borrow on Book in seiner Libraryapp
@@ -69,5 +74,13 @@ public class Course {
 
         public void setMaxParticipants(int maxParticipants) {
                 this.maxParticipants = maxParticipants;
+        }
+
+        public Set<Booking> getCourseBookings() {
+                return courseBookings;
+        }
+
+        public void setCourseBookings(Set<Booking> courseBookings) {
+                this.courseBookings = courseBookings;
         }
 }

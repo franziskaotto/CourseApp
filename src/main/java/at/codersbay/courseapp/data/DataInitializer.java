@@ -1,5 +1,8 @@
 package at.codersbay.courseapp.data;
 
+import at.codersbay.courseapp.api.booking.Booking;
+import at.codersbay.courseapp.api.booking.BookingID;
+import at.codersbay.courseapp.api.booking.BookingRepository;
 import at.codersbay.courseapp.api.course.Course;
 import at.codersbay.courseapp.api.course.CourseRepository;
 import at.codersbay.courseapp.api.student.Student;
@@ -16,6 +19,8 @@ public class DataInitializer {
     private StudentRepository studentRepository;
 
     //BookingRepository
+    @Autowired
+    private BookingRepository bookingRepository;
 
     //CourseRepository
     @Autowired
@@ -26,6 +31,8 @@ public class DataInitializer {
 
 
     public void createInitialData(){
+
+
 
         List<Student> students = this.studentRepository.findAll();
 
@@ -38,6 +45,7 @@ public class DataInitializer {
         if(courses.size() > 0) {
             return;
         }
+
 
 
         Student max = new Student();
@@ -79,6 +87,9 @@ public class DataInitializer {
         gymnastics.setDescription("You are already a level B gymnast? Then feel free to join our advanced gymnastic course ");
         gymnastics.setMaxParticipants(9);
         courseRepository.save(gymnastics);
+
+        Booking booking1 = new Booking(swimming, max);
+        bookingRepository.save(booking1);
 
     }
 }
