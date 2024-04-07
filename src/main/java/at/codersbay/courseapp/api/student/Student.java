@@ -1,9 +1,13 @@
 package at.codersbay.courseapp.api.student;
 
 
+import at.codersbay.courseapp.api.course.Course;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="Table_STUDENTS")
@@ -34,6 +38,10 @@ public class Student {
 
     @Column
     private String eMail;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private Set<Course> courseList = new HashSet<>();
 
     //passwort nicht
 
