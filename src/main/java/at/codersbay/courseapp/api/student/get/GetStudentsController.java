@@ -26,7 +26,7 @@ public class GetStudentsController {
         List<Student>  students = studentRepository.findAll();
 
 //        if(students.size() == 0) {
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 //        }
         return ResponseEntity.ok(students);
     }
@@ -39,7 +39,7 @@ public class GetStudentsController {
 
 
         if (!optionalStudent.isPresent()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         Student student = optionalStudent.get();

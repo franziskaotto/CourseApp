@@ -34,8 +34,8 @@ public class Course {
         @Column
         private int maxParticipants;
 
-        @OneToMany(mappedBy="course") //ist im booking ein feld
-        Set<Booking> courseBookings;
+        @OneToMany(mappedBy="student", fetch = FetchType.EAGER) //ist im booking ein feld
+        private Set<Booking> courseBookings;
 
 
 //booking wird das selbe wie er gemacht hat in Borrow on Book in seiner Libraryapp

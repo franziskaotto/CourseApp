@@ -47,7 +47,7 @@ public class DeleteStudentController {
 
         if(optionalStudent.isEmpty()) {
             responseBody.addErrorMessage("Could not find username : " + userName);
-            return new ResponseEntity<>(responseBody, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
 
         Student student = optionalStudent.get();

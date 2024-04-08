@@ -24,7 +24,7 @@ public class GetCourseController {
         List<Course> courses = courseRepository.findAll();
 
         if (courses.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(courses, HttpStatus.OK);
 

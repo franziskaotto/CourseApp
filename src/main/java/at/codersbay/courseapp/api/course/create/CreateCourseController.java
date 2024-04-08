@@ -24,7 +24,7 @@ public class CreateCourseController {
         if(createCourseDTO == null) {
             CourseResponseBody response = new CourseResponseBody();
             response.addErrorMessage("postbody is empty");
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
 
         Course course = this.createCourseService.createNewCourse(createCourseDTO.getTitle(), createCourseDTO.getDescription(), createCourseDTO.getMaxParticipants());

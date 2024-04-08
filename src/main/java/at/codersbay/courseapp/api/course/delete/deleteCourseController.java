@@ -31,7 +31,7 @@ public class deleteCourseController {
 
         if(optionalCourse.isEmpty()) {
             responseBody.addErrorMessage("could not delete Course by id: " + id);
-            return new ResponseEntity<>(responseBody, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         } else {
             responseBody.addMessage("Course successfully deleted ");
             return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
@@ -47,7 +47,7 @@ public class deleteCourseController {
 
       if(optionalCourse.isEmpty()) {
           responseBody.addErrorMessage("Could not find the Course " + title);
-          return new ResponseEntity<>(responseBody, HttpStatus.NO_CONTENT);
+          return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
       }
 
       Course course = optionalCourse.get();

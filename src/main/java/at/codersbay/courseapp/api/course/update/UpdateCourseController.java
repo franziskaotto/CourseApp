@@ -25,7 +25,7 @@ public class UpdateCourseController {
     public ResponseEntity<ResponseBody> updateCourse(@RequestBody UpdateCourseDTO updateCourseDTO) {
 
         if(updateCourseDTO == null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         Optional<Course> optionalCourse = this.courseRepository.findById(updateCourseDTO.getId());
