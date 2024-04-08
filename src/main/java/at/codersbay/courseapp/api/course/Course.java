@@ -4,6 +4,7 @@ import at.codersbay.courseapp.api.booking.Booking;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 
@@ -34,8 +35,8 @@ public class Course {
         @Column
         private int maxParticipants;
 
-        @OneToMany(mappedBy="student", fetch = FetchType.EAGER) //ist im booking ein feld
-        private Set<Booking> courseBookings;
+        @OneToMany(mappedBy="course", fetch = FetchType.EAGER) //ist im booking ein feld
+        private List<Booking> courseBookings;
 
 
 //booking wird das selbe wie er gemacht hat in Borrow on Book in seiner Libraryapp
@@ -76,11 +77,11 @@ public class Course {
                 this.maxParticipants = maxParticipants;
         }
 
-        public Set<Booking> getCourseBookings() {
+        public List<Booking> getCourseBookings() {
                 return courseBookings;
         }
 
-        public void setCourseBookings(Set<Booking> courseBookings) {
+        public void setCourseBookings(List<Booking> courseBookings) {
                 this.courseBookings = courseBookings;
         }
 }

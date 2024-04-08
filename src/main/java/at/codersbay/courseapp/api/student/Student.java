@@ -2,6 +2,7 @@ package at.codersbay.courseapp.api.student;
 
 
 import at.codersbay.courseapp.api.booking.Booking;
+import at.codersbay.courseapp.api.course.Course;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="Table_STUDENTS")
-public class Student extends Booking {
+public class Student {
 
     @Id
     @GeneratedValue(generator = "students-sequence-generator")
@@ -38,18 +39,12 @@ public class Student extends Booking {
     private String eMail;
 
 
-    @OneToMany(mappedBy="course") //ist im booking ein feld
+    @OneToMany(mappedBy="student") //ist im booking ein feld
     Set<Booking> studentBookings;
 
 
     //Getters and setters
-    public String getLastName() {
-        return lastName;
-    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
     public long getId() {
         return id;
     }
@@ -72,6 +67,14 @@ public class Student extends Booking {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String geteMail() {

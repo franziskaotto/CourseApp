@@ -1,6 +1,7 @@
 package at.codersbay.courseapp.data;
 
 import at.codersbay.courseapp.api.booking.Booking;
+import at.codersbay.courseapp.api.booking.BookingID;
 import at.codersbay.courseapp.api.booking.BookingRepository;
 import at.codersbay.courseapp.api.course.Course;
 import at.codersbay.courseapp.api.course.CourseRepository;
@@ -90,21 +91,26 @@ public class DataInitializer {
         Booking bookingSwimmingMax = new Booking(swimming, max);
         bookingRepository.save(bookingSwimmingMax);
 
-      Booking bookingSwimmingLeah = new Booking(swimming, leah)
+        Booking bookingSwimmingLeah = new Booking(swimming, leah);
+        bookingRepository.save(bookingSwimmingLeah);
 
         Booking bookingGymnasticsForLeah = new Booking(gymnastics, leah);
         bookingRepository.save(bookingGymnasticsForLeah);
+
+        this.bookingRepository.flush();
 
 
 
 
         swimming = this.courseRepository.findById(swimming.getId()).get();
+
         System.out.println(swimming.getCourseBookings().size());
+
+
         System.out.println("BEFORE");
-        for (Booking booking : swimming.getCourseBookings()) {
-            System.out.println("CourseList(all students which have this course");
-            System.out.println(booking.getStudent().getFirstName());
-        }
+       for(Booking booking : swimming.getCourseBookings()) {
+           System.out.println(booking.getStudent());
+       }
 
 
 

@@ -64,4 +64,32 @@ public class Booking {
     public void setStudent(Student student) {
         this.student = student;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if(this == other) {
+            return true;
+        }
+
+        if(other == null || !(other instanceof Booking)) {
+            return false;
+        }
+
+        Booking otherBooking = (Booking) other;
+
+        if(this.id == null && otherBooking.getId() == null) {
+            return true;
+        }
+
+        return this.id.equals(otherBooking.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        if(this.id == null) {
+            return 0;
+        }
+
+        return this.id.hashCode();
+    }
 }
