@@ -18,6 +18,13 @@ public class GetCourseController {
     @Autowired
     private CourseRepository courseRepository;
 
+
+    //TODO commentar schreiben
+    /**
+     * Path: "localhost/8081/api/courses/"
+     * This Method lists all
+     * @return
+     */
     @GetMapping("/")
     public ResponseEntity<List<Course>> getAllCourses() {
 

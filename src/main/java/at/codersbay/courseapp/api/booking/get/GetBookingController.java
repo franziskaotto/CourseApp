@@ -18,6 +18,12 @@ public class GetBookingController {
     @Autowired
     private BookingRepository bookingRepository;
 
+
+    /**
+     * Path: "localhost/8081/api/booking/"
+     * This method lists all active bookings listet in the DB.
+     * @return List with all bookings.
+     */
     @GetMapping("/")
     public ResponseEntity<List<Booking>> getAllBookings() {
         List<Booking> bookings = bookingRepository.findAll();

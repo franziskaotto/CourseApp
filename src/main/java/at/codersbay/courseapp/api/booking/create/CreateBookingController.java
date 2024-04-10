@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+
+
 @RestController
 @RequestMapping("/api/booking/")
 public class CreateBookingController {
@@ -36,7 +38,12 @@ public class CreateBookingController {
     CreateBookingService createBookingService;
 
 
-
+    /**
+     * Path: "localhost/8081/api/booking/"
+     * This Method creates (Post) a new Course Booking for a Student and adds it to the DB.
+     * @param createBookingDTO DTO with a courseId(long) and a studentId (long).
+     * @return BookingresponseBody contains the new Booking with a CourseId, the StudentId and a Message (String) & the HTTPStatus.
+     */
 
     @PostMapping("/")
     public ResponseEntity<BookingResponseBody> createBooking(@RequestBody CreateBookingDTO createBookingDTO) {
@@ -50,7 +57,7 @@ public class CreateBookingController {
 
         //check auf Teilnehmerzahl
         long courseIDToCheck = createBookingDTO.getCourseId();
-      ;
+
 
         BookingID bookingID = new BookingID(createBookingDTO.getCourseId(), createBookingDTO.getStudentId());
 
@@ -72,6 +79,7 @@ public class CreateBookingController {
                 if(optionalCourse.get().getMaxParticipants() < bookingRepository
                         .findAllByCourseId(courseIDToCheck).size()) {
                     booking = this.createBookingService.createBooking(course, student);
+                    //TODO zeile 93 noch hier her packen
                 } else {
                     responseBody.addErrorMessage("Course is fully Booked. Please choose a different one");
                     return  new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);

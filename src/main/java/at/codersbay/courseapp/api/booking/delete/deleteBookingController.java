@@ -20,6 +20,14 @@ public class deleteBookingController {
     @Autowired
     BookingRepository bookingRepository;
 
+
+    /**
+     * Path: "localhost/8081/api/booking/delete/{courseId}/{studentId}"
+     * This method deletes a CourseBooking from the DB. It also removes the booking from the List of bookings in Course and Student
+     * @param courseId Parameter containing the courseId (long) of the booked Course to be deleted.
+     * @param studentId Parameter containing the studentId (long) of the booked student in the Course to be deleted.
+     * @return Status message, if booking was successfully deleted or not.
+     */
     @DeleteMapping("/delete/{courseId}/{studentId}")
     public ResponseEntity<ResponseBody> deleteBookingById
             (@PathVariable long courseId, @PathVariable long studentId)

@@ -21,6 +21,14 @@ public class UpdateCourseController {
     @Autowired
     CourseRepository courseRepository;
 
+    //TODO Kommentar scheiben
+    /**
+     * Path: "localhost/8081/api/courses/"
+     * With this method a Course can be updated (patch).
+     *
+     * @param updateCourseDTO The DTO contains all Key-Value Pairs
+     * @return
+     */
     @PatchMapping
     public ResponseEntity<ResponseBody> updateCourse(@RequestBody UpdateCourseDTO updateCourseDTO) {
 

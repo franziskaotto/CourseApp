@@ -22,9 +22,11 @@ public class deleteCourseController {
     CourseRepository courseRepository;
 
     /**
-     *
-     * @param id
-     * @return
+     * Path:
+     *      Delete with id:  "localhost/8081/api/courses/{id}"
+     * This Method deletes an existing Course from the DB via its ID.
+     * @param id Parameter id (long) is the ID of the to be deleted Course.
+     * @return The ResponseBody contains a Message (String) and a HTTPStatus.
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseBody> deleteCourseById(@PathVariable long id) {
@@ -43,6 +45,14 @@ public class deleteCourseController {
         }
     }
 
+
+    /**
+     * Path:
+     *      Delete with CourseTitle "localhost/8081/api/courses/courseTitle/{title}"
+     * This Method deletes an existing Course from the DB via its Title (unique).
+     * @param title Parameter title (String) is the title of the to be deleted Course.
+     * @return The ResponseBody contains a Message (String) and a HTTPStatus.
+     */
     @DeleteMapping("/courseTitle/{title}")
     public ResponseEntity<ResponseBody> deleteCourseByTitle (@PathVariable String title) {
 
@@ -59,17 +69,15 @@ public class deleteCourseController {
 
       this.courseRepository.deleteById(course.getId());
 
+      optionalCourse = courseRepository.findCourseByTitle(title);
 
-      //check if delete really worked
-        optionalCourse = courseRepository.findCourseByTitle(title);
-
-        if(optionalCourse.isPresent()) {
-            responseBody.addErrorMessage("Could not delete Course by Coursename: " + title);
-            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
-        } else {
-            responseBody.addMessage("Course " + title +  " successfully deleted");
-            return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
-        }
+      if(optionalCourse.isPresent()) {
+          responseBody.addErrorMessage("Could not delete Course by Coursename: " + title);
+          return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
+      } else {
+          responseBody.addMessage("Course " + title +  " successfully deleted");
+          return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
+      }
     }
 
 

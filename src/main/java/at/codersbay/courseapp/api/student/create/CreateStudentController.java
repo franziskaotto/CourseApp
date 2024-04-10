@@ -18,6 +18,12 @@ public class CreateStudentController {
 @Autowired
 private CreateStudentService createStudentService;
 
+
+    /**
+     * Path:
+     * @param createStudentDTO
+     * @return
+     */
     @PostMapping
     public ResponseEntity<StudentResponseBody> createNewStudent(@RequestBody CreateStudentDTO createStudentDTO) {
 
