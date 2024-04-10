@@ -48,10 +48,16 @@ public class CreateBookingController {
             return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
 
+        //check auf Teilnehmerzahl
+        long courseIDToCheck = createBookingDTO.getCourseId();
+        Optional<Course> optionalCourse = courseRepository.findById(courseIDToCheck);
+
+
+
+
         BookingID bookingID = new BookingID(createBookingDTO.getCourseId(), createBookingDTO.getStudentId());
 
         Optional<Booking> optionalBooking = bookingRepository.findById(bookingID);
-        Optional<Course> optionalCourse = courseRepository.findById(createBookingDTO.getCourseId());
         Optional<Student> optionalStudent = studentRepository.findById(createBookingDTO.getStudentId());
 
         if(optionalBooking.isPresent()) {
@@ -64,7 +70,19 @@ public class CreateBookingController {
         Student student = optionalStudent.get();
 
         try {
-            booking = this.createBookingService.createBooking(course, student);
+
+            if(optionalCourse.isPresent()) {
+                if(optionalCourse.get().getMaxParticipants() < bookingRepository
+                        .findAllByCourseId(courseIDToCheck).size()) {
+
+                    booking = this.createBookingService.createBooking(course, student);
+
+
+                } else {
+                    responseBody.addErrorMessage("Course is fully Booked. Please choose a different one");
+                    return  new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
+                }
+            }
 
         } catch (CourseIsEmptyException | StudentIsEmptyException exception) {
             responseBody.addErrorMessage(exception.getMessage());

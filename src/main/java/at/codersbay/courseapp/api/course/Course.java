@@ -35,7 +35,7 @@ public class Course {
         @Column
         private int maxParticipants;
 
-        @OneToMany(mappedBy="course", fetch = FetchType.EAGER) //ist im booking ein feld
+        @OneToMany(mappedBy="course", cascade = CascadeType.ALL, fetch = FetchType.EAGER) //ist im booking ein feld
         private List<Booking> courseBookings;
 
 

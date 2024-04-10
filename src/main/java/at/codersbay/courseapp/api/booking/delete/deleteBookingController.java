@@ -26,7 +26,7 @@ public class deleteBookingController {
 
     {
 
-        //EmptyResultDataAccessException
+        //Kann auch vorher testen ob die Buchung da ist oder nicht
 
         BookingID bookingID = new BookingID(courseId, studentId);
         ResponseBody responseBody = new ResponseBody();

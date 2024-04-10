@@ -21,6 +21,11 @@ public class deleteCourseController {
     @Autowired
     CourseRepository courseRepository;
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseBody> deleteCourseById(@PathVariable long id) {
 

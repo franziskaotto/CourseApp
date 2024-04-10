@@ -39,7 +39,7 @@ public class Student {
     private String eMail;
 
 
-    @OneToMany(mappedBy="student") //ist im booking ein feld
+    @OneToMany(mappedBy="student", cascade = CascadeType.ALL) //ist im booking ein feld
     Set<Booking> studentBookings;
 
 

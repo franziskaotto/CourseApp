@@ -97,7 +97,7 @@ public class DataInitializer {
         Booking bookingGymnasticsForLeah = new Booking(gymnastics, leah);
         bookingRepository.save(bookingGymnasticsForLeah);
 
-        this.bookingRepository.flush();
+
 
 
 
