@@ -22,6 +22,8 @@ public class UpdateCourseController {
     CourseRepository courseRepository;
 
     //TODO Kommentar scheiben
+
+    //TODO JSON DATEI von Postman hinzufügen
     /**
      * Path: "localhost/8081/api/courses/"
      * With this method a Course can be updated (patch).
