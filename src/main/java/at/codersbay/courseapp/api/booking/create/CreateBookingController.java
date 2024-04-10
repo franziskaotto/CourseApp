@@ -50,19 +50,17 @@ public class CreateBookingController {
 
         //check auf Teilnehmerzahl
         long courseIDToCheck = createBookingDTO.getCourseId();
-        Optional<Course> optionalCourse = courseRepository.findById(courseIDToCheck);
-
-
-
+      ;
 
         BookingID bookingID = new BookingID(createBookingDTO.getCourseId(), createBookingDTO.getStudentId());
 
+        Optional<Course> optionalCourse = courseRepository.findById(courseIDToCheck);
         Optional<Booking> optionalBooking = bookingRepository.findById(bookingID);
         Optional<Student> optionalStudent = studentRepository.findById(createBookingDTO.getStudentId());
 
         if(optionalBooking.isPresent()) {
             responseBody.addErrorMessage("You already booked this course");
-            return new ResponseEntity<>(responseBody, HttpStatus.CONFLICT);
+            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
 
         Booking booking = null;
@@ -70,33 +68,21 @@ public class CreateBookingController {
         Student student = optionalStudent.get();
 
         try {
-
             if(optionalCourse.isPresent()) {
                 if(optionalCourse.get().getMaxParticipants() < bookingRepository
                         .findAllByCourseId(courseIDToCheck).size()) {
-
                     booking = this.createBookingService.createBooking(course, student);
-
-
                 } else {
                     responseBody.addErrorMessage("Course is fully Booked. Please choose a different one");
                     return  new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
                 }
             }
-
         } catch (CourseIsEmptyException | StudentIsEmptyException exception) {
             responseBody.addErrorMessage(exception.getMessage());
             return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(new BookingResponseBody(booking), HttpStatus.OK);
-
-
-
-
-
-        // Student student = this.studentRepository.findById(createBookingDTO.getStudentID())
-
     }
 
 }
