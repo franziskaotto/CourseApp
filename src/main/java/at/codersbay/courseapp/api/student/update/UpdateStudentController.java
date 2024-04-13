@@ -16,14 +16,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/students/")
+@RequestMapping("/api/students")
 public class UpdateStudentController {
 
     //noch mal vielleicht umschreiben Oder ergänzen: Suche mit id als PathVariable
     @Autowired
     StudentRepository studentRepository;
 
-    @PatchMapping
+
+    /**
+     * Path: "localhost/8081/api/students/"
+     * This Method updates an exisiting Student (Patch)
+     * @param updateStudentDTO The DTO contains one or more Key-Value pairs which will then update the existing Student.
+     * @return StudentResponseBody contains the updated Student, a message and a HTTPStatus
+     */
+    @PatchMapping("/")
     public ResponseEntity<StudentResponseBody> updateStudent(@RequestBody UpdateStudentDTO updateStudentDTO) {
         if(updateStudentDTO == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

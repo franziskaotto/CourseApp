@@ -21,7 +21,7 @@ public class GetBookingController {
 
     /**
      * Path: "localhost/8081/api/booking/"
-     * This method lists all active bookings listet in the DB.
+     * This method lists all active bookings which are currently in the DB.
      * @return List with all bookings.
      */
     @GetMapping("/")

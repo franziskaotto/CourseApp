@@ -21,10 +21,10 @@ public class CreateCourseController {
 
     /**
      * Path: "localhost/8081/api/courses/"
-     * This method creates a new Course. If one of the Key-Value Pairs in the DTO is left empty, the listet down below Exceptions are thrown.
-     * @param createCourseDTO contains title (String), description (String) and maxParticipants (long) of the new Course.
+     * This method creates a new course. If one of the Key-Value Pairs in the DTO is left empty, the listed down below Exceptions is thrown.
+     * @param createCourseDTO contains title (String), description (String) and maxParticipants (long) of the new course.
      * @return the new created Course & HTTPStatus.
-     * @throws TitleIsEmptyException extends Exception. If the title of the Course is left empty, the TitleIsLeftEmptyException is thrown
+     * @throws TitleIsEmptyException extends Exception. If the title of the course is left empty, the TitleIsLeftEmptyException is thrown
      * @throws DescriptionIsEmptyException extends Exception.If the Description of the Course is left empty, the TitleIsEmptyException is thrown
      * @throws MaxParticipantsIsEmptyException extends Exception. If the number of max. Participants is empty, the MaxParticipantsIsEmptyException is thrown
      */

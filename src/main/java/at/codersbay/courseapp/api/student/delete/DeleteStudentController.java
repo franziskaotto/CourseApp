@@ -18,6 +18,12 @@ public class DeleteStudentController {
     @Autowired
     StudentRepository studentRepository;
 
+    /**
+     * Path: "localhost/api/students/{id}"
+     * This method deletes a Student by Id from the DB.
+     * @param id (long) Parameter containing the id of the to be deleted student
+     * @return message, if Delete was successful or not & HTTPStatus
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseBody> deleteStudent(@PathVariable long id) {
 
@@ -32,13 +38,19 @@ public class DeleteStudentController {
             responseBody.addErrorMessage("delete of Student failed. ID:  " + id);
             return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         } else if (optionalStudent.isEmpty()) {
-            responseBody.addMessage("User successfully deleted");
+            responseBody.addMessage("Student successfully deleted");
             return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
         } else {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
+    /**
+     * Path: "localhost/api/students/userName/{userName}";
+     * This Method deletes a Student by its UserName (String, unique) from the DB
+     * @param userName Parameter containing the UserName of the stundet to be deleted
+     * @return ResponseBody contains a Message if delete was successful or not and a HTTPStatus
+     */
     @DeleteMapping("/userName/{userName}")
     public ResponseEntity<ResponseBody> deleteStudentByUserName(@PathVariable String userName) {
         Optional<Student> optionalStudent = this.studentRepository.findStudentByUserName(userName);

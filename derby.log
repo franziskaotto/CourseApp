@@ -1,12 +1,12 @@
 ----------------------------------------------------------------
-Wed Apr 10 19:40:27 CEST 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018e-c918-c383-000001f85bc8 
-on database directory C:\Users\pm-user126\IdeaProjects\CourseApp\local with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528 
-Loaded from file:/C:/Users/pm-user126/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
-java.vendor=Oracle Corporation
-java.runtime.version=21.0.2+13-58
-user.dir=C:\Users\pm-user126\IdeaProjects\CourseApp
-os.name=Windows 10
+Sat Apr 13 08:45:00 UTC 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-018e-d6a1-9ee4-000007300000 
+on database directory C:\Users\franz.DESKTOP-UB99C0G\Documents\CodersBay\CourseApp\local with class loader com.intellij.database.remote.jdbc.impl.JdbcClassLoader$JdbcClassLoaderImpl@1cd072a9 
+Loaded from file:/C:/Users/franz.DESKTOP-UB99C0G/AppData/Roaming/JetBrains/IntelliJIdea2023.3/jdbc-drivers/Apache%20Derby/10.16.1.1/org/apache/derby/derby/10.16.1.1/derby-10.16.1.1.jar
+java.vendor=JetBrains s.r.o.
+java.runtime.version=17.0.10+1-b1087.17
+user.dir=C:\Users\franz.DESKTOP-UB99C0G\Documents\CodersBay\CourseApp
+os.name=Windows 11
 os.arch=amd64
 os.version=10.0
 derby.system.home=null

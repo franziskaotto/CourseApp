@@ -1,6 +1,6 @@
 package at.codersbay.courseapp.api.student.create;
 
-//info: alles was DTO überprüfung ist, passiert im controller, alle anderen in der service class
+//info für mich zum lernen: alles was DTO überprüfung ist, passiert im controller, alle anderen in der service class
 
 import at.codersbay.courseapp.api.student.Student;
 import at.codersbay.courseapp.api.student.StudentResponseBody;
@@ -20,10 +20,19 @@ private CreateStudentService createStudentService;
 
 
     /**
-     * Path:
-     * @param createStudentDTO
-     * @return
+     * Path: "localhost/api/students/"
+     * This Method (Post) creates a Student.If one Key-Value-Pair is left empty, one of the listed down below exceptions is thrown
+     * @param createStudentDTO The DTO contains userName (String), firstName (String), LastName(String) and email(String) of the new student.
+     * @return contains userName (String), firstName (String), LastName(String) and email(String) of the new student
+
+     * @throws EmailIsEmptyException extends Exception. If the email of the student is left empty, the EmailIsEmptyException is thrown
+     * @throws FirstNameIsEmptyException extends Exception. If the first name of the student is left empty, the FirstNameException is thrown
+     * @throws LastNameIsEmptyException extends Exception. If the last name of the student is left empty, the LastNameIsEmptyException is thrown
+     * @throws UserNameIsEmptyException extends Exception. If the username of the student is left empty, the UserNameIsEmptyException is thrown
+     *
      */
+
+
     @PostMapping
     public ResponseEntity<StudentResponseBody> createNewStudent(@RequestBody CreateStudentDTO createStudentDTO) {
 
