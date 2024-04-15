@@ -21,15 +21,12 @@ public class UpdateCourseController {
     @Autowired
     CourseRepository courseRepository;
 
-    //TODO Kommentar scheiben
 
-    //TODO JSON DATEI von Postman hinzufügen
     /**
      * Path: "localhost/8081/api/courses/"
      * With this method a Course can be updated (patch).
-     *
-     * @param updateCourseDTO The DTO contains all Key-Value Pairs
-     * @return
+     * @param updateCourseDTO The DTO contains all Key-Value Pairs.
+     * @return This method returns the updated Course.
      */
     @PatchMapping
     public ResponseEntity<ResponseBody> updateCourse(@RequestBody UpdateCourseDTO updateCourseDTO) {

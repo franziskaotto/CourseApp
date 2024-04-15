@@ -1,6 +1,7 @@
 package at.codersbay.courseapp.api.course;
 
 import at.codersbay.courseapp.api.booking.Booking;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -35,7 +36,8 @@ public class Course {
         @Column
         private int maxParticipants;
 
-        @OneToMany(mappedBy="course", cascade = CascadeType.ALL, fetch = FetchType.EAGER) //ist im booking ein feld
+        @JsonIgnore
+        @OneToMany(mappedBy="course", cascade = CascadeType.ALL) //ist im booking ein feld
         private List<Booking> courseBookings;
 
 

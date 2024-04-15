@@ -3,6 +3,7 @@ package at.codersbay.courseapp.api.course.create;
 
 import at.codersbay.courseapp.api.course.Course;
 import at.codersbay.courseapp.api.course.CourseResponseBody;
+import at.codersbay.courseapp.api.student.create.FirstNameIsEmptyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +35,22 @@ public class CreateCourseController {
         if(createCourseDTO == null) {
             CourseResponseBody response = new CourseResponseBody();
             response.addErrorMessage("Postbody is empty");
+
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
 
-        Course course = this.createCourseService.createNewCourse(createCourseDTO.getTitle(), createCourseDTO.getDescription(), createCourseDTO.getMaxParticipants());
+
+
+        Course course = null;
+        CourseResponseBody courseResponseBody = new CourseResponseBody();
+        try {
+            course = this.createCourseService.createNewCourse(createCourseDTO.getTitle(), createCourseDTO.getDescription(), createCourseDTO.getMaxParticipants());
+        } catch (TitleIsEmptyException | DescriptionIsEmptyException | MaxParticipantsIsEmptyException exception) {
+            courseResponseBody.addErrorMessage(exception.getMessage());
+
+            return new ResponseEntity<>(courseResponseBody, HttpStatus.BAD_REQUEST);
+        }
+
 
         return new ResponseEntity<>(new CourseResponseBody(course), HttpStatus.OK);
     }

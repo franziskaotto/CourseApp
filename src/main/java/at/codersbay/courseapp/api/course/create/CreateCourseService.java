@@ -10,15 +10,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CreateCourseService {
-
-
     @Autowired
     private CourseRepository courseRepository;
 
-    public Course createNewCourse(String title, String description, int maxParticipants) throws TitleIsEmptyException, DescriptionIsEmptyException, MaxParticipantsIsEmptyException{
+    public Course createNewCourse(String title, String description, int maxParticipants)
+            throws TitleIsEmptyException, DescriptionIsEmptyException, MaxParticipantsIsEmptyException{
 
 
-        //check if all key value pairs are present
         if(StringUtils.isEmpty(title)) {
             throw new TitleIsEmptyException("the title cant be empty. Please enter a title");
         }else if(StringUtils.isEmpty(description)) {
@@ -27,7 +25,7 @@ public class CreateCourseService {
             throw new MaxParticipantsIsEmptyException("Please enter a max. number of participants");
         }
 
-        //if everything is present, create new Course:
+
         Course course = new Course();
         course.setTitle(title);
         course.setDescription(description);

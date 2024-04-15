@@ -33,14 +33,10 @@ public class deleteBookingController {
             (@PathVariable long courseId, @PathVariable long studentId)
 
     {
-
-        //Kann auch vorher testen ob die Buchung da ist oder nicht
-
         BookingID bookingID = new BookingID(courseId, studentId);
         ResponseBody responseBody = new ResponseBody();
         try {
             bookingRepository.deleteById(bookingID);
-
 
             Optional<Booking> optionalBooking = bookingRepository.findById(bookingID);
 

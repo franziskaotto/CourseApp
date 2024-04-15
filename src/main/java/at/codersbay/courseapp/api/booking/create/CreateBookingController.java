@@ -55,10 +55,7 @@ public class CreateBookingController {
             return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
 
-        //check auf Teilnehmerzahl
         long courseIDToCheck = createBookingDTO.getCourseId();
-
-
         BookingID bookingID = new BookingID(createBookingDTO.getCourseId(), createBookingDTO.getStudentId());
 
         Optional<Course> optionalCourse = courseRepository.findById(courseIDToCheck);
@@ -76,10 +73,9 @@ public class CreateBookingController {
 
         try {
             if(optionalCourse.isPresent()) {
-                if(optionalCourse.get().getMaxParticipants() < bookingRepository
+                if(optionalCourse.get().getMaxParticipants() > bookingRepository
                         .findAllByCourseId(courseIDToCheck).size()) {
                     booking = this.createBookingService.createBooking(course, student);
-                    //TODO zeile 93 noch hier her packen
                 } else {
                     responseBody.addErrorMessage("Course is fully Booked. Please choose a different one");
                     return  new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);

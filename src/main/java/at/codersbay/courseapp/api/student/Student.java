@@ -3,6 +3,7 @@ package at.codersbay.courseapp.api.student;
 
 import at.codersbay.courseapp.api.booking.Booking;
 import at.codersbay.courseapp.api.course.Course;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -38,7 +39,7 @@ public class Student {
     @Column
     private String eMail;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy="student", cascade = CascadeType.ALL) //ist im booking ein feld
     Set<Booking> studentBookings;
 

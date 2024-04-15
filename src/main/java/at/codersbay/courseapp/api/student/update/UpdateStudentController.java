@@ -48,12 +48,12 @@ public class UpdateStudentController {
         Student student = optionalStudent.get();
 
 
-        /**StringUtils Klasse ersetzt dieses Monster:
+        /*LernInfo für mich: StringUtils Klasse ersetzt den folgenden Code:
          if(updateBookDTO.getTitle() != null && updateBookDTO.getTitle().length() > 0) {
          }
          */
 
-        //abfrage, welches der Key-value pairs NICHT leer ist
+
         if(!StringUtils.isEmpty(updateStudentDTO.getUserName())) {
             student.setUserName(updateStudentDTO.getUserName());
         }

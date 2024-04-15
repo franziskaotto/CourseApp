@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.List;
 
 
@@ -57,7 +59,7 @@ public class DataInitializer {
         max.setFirstName("Max");
         max.setLastName("Musterman");
         max.seteMail("Max@mustermann.at");
-        studentRepository.save(max);
+        max = studentRepository.save(max);
 
         Student alex = new Student();
         alex.setUserName("AlexUser");
@@ -73,12 +75,12 @@ public class DataInitializer {
         leah.seteMail("leah@albrecht.at");
         studentRepository.save(leah);
 
-        //COURSE - angelehnt an die USI-Sportkurse von der Uni
+        //COURSE
         Course swimming = new Course();
         swimming.setTitle("Swimming for Beginners");
         swimming.setDescription("If you want to learn how to swimm, this course is for you. We will start with the absolut basics");
         swimming.setMaxParticipants(3);
-        courseRepository.save(swimming);
+        swimming = courseRepository.save(swimming);
 
         Course athletics = new Course();
         athletics.setTitle("Athletics Basics");
@@ -92,36 +94,17 @@ public class DataInitializer {
         gymnastics.setMaxParticipants(9);
         courseRepository.save(gymnastics);
 
+
+        //Bookings
         Booking bookingSwimmingMax = new Booking(swimming, max);
-        bookingRepository.save(bookingSwimmingMax);
+        bookingSwimmingMax = bookingRepository.save(bookingSwimmingMax);
+
 
         Booking bookingSwimmingLeah = new Booking(swimming, leah);
         bookingRepository.save(bookingSwimmingLeah);
 
         Booking bookingGymnasticsForLeah = new Booking(gymnastics, leah);
         bookingRepository.save(bookingGymnasticsForLeah);
-
-
-
-
-
-
-        swimming = this.courseRepository.findById(swimming.getId()).get();
-
-        System.out.println(swimming.getCourseBookings().size());
-
-
-        System.out.println("BEFORE");
-       for(Booking booking : swimming.getCourseBookings()) {
-           System.out.println(booking.getStudent());
-       }
-
-
-
-
-
-
-       // System.out.println(swimming.getCourseBookings().size());
 
     }
 }
