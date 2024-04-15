@@ -59,7 +59,7 @@ public class UpdateStudentController {
         }
 
         if(!StringUtils.isEmpty(updateStudentDTO.getFirstName())) {
-            student.setUserName(updateStudentDTO.getFirstName());
+            student.setFirstName(updateStudentDTO.getFirstName());
         }
 
         if(!StringUtils.isEmpty(updateStudentDTO.getLastName())) {

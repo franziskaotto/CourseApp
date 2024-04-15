@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 
@@ -64,6 +65,11 @@ public class CreateBookingController {
 
         if(optionalBooking.isPresent()) {
             responseBody.addErrorMessage("You already booked this course");
+            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
+        }
+
+        if(!optionalBooking.isPresent() || !optionalCourse.isPresent()) {
+            responseBody.addErrorMessage("cant find course or student");
             return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
         }
 
