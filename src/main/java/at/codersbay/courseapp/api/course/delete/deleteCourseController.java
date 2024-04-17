@@ -55,10 +55,6 @@ public class deleteCourseController {
         } catch (EmptyResultDataAccessException erde) {
             responseBody.addErrorMessage("No Course" + id + " available");
             return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
-
-
         }
-
     }
-
 }

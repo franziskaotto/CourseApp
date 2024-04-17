@@ -98,8 +98,5 @@ public class DeleteStudentController {
             responseBody.addMessage("Delete successfull, " + userName + " has been deleted.");
             return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
         }
-
     }
-
-
 }

@@ -9,9 +9,6 @@ public class CreateBookingDTO {
 
 
 
-
-
-    //getter and setter
     public long getCourseId() { return courseId;}
 
     public void setCourseId(long courseId) {

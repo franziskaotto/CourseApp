@@ -11,9 +11,6 @@ public class CreateStudentDTO {
     private String eMail;
 
 
-//getter and setter
-
-
     public long getId() {
         return id;
     }

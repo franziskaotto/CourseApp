@@ -10,12 +10,10 @@ public class StudentResponseBody extends ResponseBody {
     }
 
 
-    //creating 2. constructor with passing value
     public StudentResponseBody(Student student) {
         this.student = student;
     }
 
-    //getter and setter
     public Student getStudent() {
         return student;
     }

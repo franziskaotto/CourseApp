@@ -41,12 +41,6 @@ public class Course {
         private List<Booking> courseBookings;
 
 
-//booking wird das selbe wie er gemacht hat in Borrow on Book in seiner Libraryapp
-
-
-//getter and setter
-
-
         public long getId() {
                 return id;
         }

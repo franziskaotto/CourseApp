@@ -32,6 +32,4 @@ public class CreateStudentService {
 
         return this.studentRepository.save(student);
     }
-
-
 }

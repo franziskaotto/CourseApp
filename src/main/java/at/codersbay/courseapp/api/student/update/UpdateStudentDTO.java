@@ -2,7 +2,6 @@ package at.codersbay.courseapp.api.student.update;
 
 public class UpdateStudentDTO {
 
-
     private long id;
 
     private String userName;
@@ -13,8 +12,6 @@ public class UpdateStudentDTO {
 
     private String eMail;
 
-
-    //getter and setter
 
 
     public long getId() {

@@ -16,8 +16,6 @@ public class BookingResponseBody extends ResponseBody {
     }
 
 
-    //getter and setter
-
     public Booking getBooking() {
         return booking;
     }

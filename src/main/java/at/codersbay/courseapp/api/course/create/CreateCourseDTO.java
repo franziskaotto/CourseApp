@@ -1,7 +1,6 @@
 package at.codersbay.courseapp.api.course.create;
 
 
-import javax.persistence.Column;
 
 public class CreateCourseDTO {
     private String title;
@@ -11,7 +10,6 @@ public class CreateCourseDTO {
     private int maxParticipants;
 
 
-    //getter and setter
 
     public String getTitle() {
         return title;

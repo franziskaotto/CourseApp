@@ -15,8 +15,8 @@ import java.util.regex.Pattern;
 @RestController
 @RequestMapping("/api/students")
 public class CreateStudentController {
-@Autowired
-private CreateStudentService createStudentService;
+    @Autowired
+    private CreateStudentService createStudentService;
 
 
     /**
@@ -64,9 +64,6 @@ private CreateStudentService createStudentService;
 
     }
 
-
-
-
     public boolean testIfEmailIsValid(String email){
         String regex = "^(.+)@(.+)$";
         Pattern pattern = Pattern.compile(regex);
@@ -74,5 +71,4 @@ private CreateStudentService createStudentService;
         return matcher.matches();
 
     }
-
 }

@@ -19,7 +19,6 @@ import java.util.Optional;
 @RequestMapping("/api/students")
 public class UpdateStudentController {
 
-    //noch mal vielleicht umschreiben Oder ergänzen: Suche mit id als PathVariable
     @Autowired
     StudentRepository studentRepository;
 

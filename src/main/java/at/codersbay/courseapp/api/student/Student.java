@@ -40,11 +40,9 @@ public class Student {
     private String eMail;
 
     @JsonIgnore
-    @OneToMany(mappedBy="student", cascade = CascadeType.ALL) //ist im booking ein feld
+    @OneToMany(mappedBy="student", cascade = CascadeType.ALL)
     Set<Booking> studentBookings;
 
-
-    //Getters and setters
 
     public long getId() {
         return id;

@@ -12,7 +12,6 @@ public class ResponseBody {
    public boolean addErrorMessage(String message) {return this.errorMessage.add(message);}
 
 
-    //getter and setter
     public ArrayList<String> getMessage() {
         return message;
     }

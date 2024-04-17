@@ -38,9 +38,6 @@ public class Booking {
     }
 
 
-     //getter and setter
-
-
     public BookingID getId() {
         return id;
     }

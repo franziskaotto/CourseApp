@@ -59,5 +59,4 @@ public class GetStudentsController {
 
         return ResponseEntity.ok(student);
     }
-
 }

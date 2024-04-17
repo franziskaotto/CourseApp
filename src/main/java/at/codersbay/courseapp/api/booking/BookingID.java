@@ -59,9 +59,6 @@ public class BookingID extends Object implements Serializable {
         return Objects.hash(courseId, studentId);
     }
 
-    //getter and setter
-
-
     public long getCourseId() {
         return courseId;
     }

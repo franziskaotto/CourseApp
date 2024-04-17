@@ -62,8 +62,5 @@ public class UpdateCourseController {
         courseResponseBody.setCourse(course);
 
         return ResponseEntity.ok(courseResponseBody);
-
-
     }
-
 }
